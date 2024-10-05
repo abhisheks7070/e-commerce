@@ -15,8 +15,6 @@ const Home = () => {
     const navigate = useNavigate()
     // console.log(products)
 
-    navigate(0)
-
     
     useEffect(() => {
         
