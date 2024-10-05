@@ -9,7 +9,7 @@ const router = require("./routes/signin")
 const app = express()
 const corsOptions = {
     // origin: "http://localhost:5173" // frontend URI (ReactJS)
-    origin: ["https://e-commerce-5ekf.onrender.com"] // frontend URI (ReactJS)
+    origin: "https://e-commerce-5ekf.onrender.com" // frontend URI (ReactJS)
 }
 
 // app.use(cors());
