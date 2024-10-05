@@ -12,7 +12,7 @@ const corsOptions = {
     origin: ["https://e-commerce-5ekf.onrender.com"] // frontend URI (ReactJS)
 }
 
-app.use(cors());
+// app.use(cors());
 app.use(cors(corsOptions));
 
 app.use(express.json())
