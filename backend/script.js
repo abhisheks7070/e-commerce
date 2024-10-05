@@ -6,9 +6,16 @@ const secret = "123123"
 const {middleware} = require("./auth")
 const router = require("./routes/signin")
 
+const corsOptions = {
+    // origin: "http://localhost:5173" // frontend URI (ReactJS)
+    origin: ["https://e-commerce-5ekf.onrender.com"] // frontend URI (ReactJS)
+}
+
+app.use(cors());
+app.use(cors(corsOptions));
+
 const app = express()
 app.use(express.json())
-app.use(cors())
 app.use("/", router);
 
 
