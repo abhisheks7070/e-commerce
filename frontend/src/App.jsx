@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
-import Signup from "./components/Signup";
-import Signin from "./components/Signin";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
 import Payment from "./pages/Payment";
-import Items from "./components/Items";
-import Wishlist from "./components/Wishlist";
+import Items from "./pages/Items";
+import Wishlist from "./pages/Wishlist";
 
 
 function App() {

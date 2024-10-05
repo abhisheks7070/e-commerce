@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import Navbar from './Navbar'
+import Navbar from '../components/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCartItem } from '../store/cartReducer'
+import axios from 'axios'
 
 const Items = () => {
     const location = useLocation()
     console.log(location.state)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        
+      const fetchdata = async () => {
+          // localStorage.getItem("cart")
+          try {
+              const response = await axios.get('http://localhost:5000/',
+                  { headers: { authorization: localStorage.getItem("token") } }
+              );
+              // console.log(response.data);
+              // setList(response.data);
+          } catch (error) {
+              console.error('Error fetching contacts:', error);
+              navigate('/signin')
+              alert("session expired")
+          }
+      };
+
+      fetchdata();
+
+  }, );
+
 
   return (<>
     <Navbar />

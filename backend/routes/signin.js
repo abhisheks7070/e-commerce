@@ -6,7 +6,10 @@ const bcrypt = require('bcrypt')
 const secret = "123123"
 
 
-let users = []
+let users = [{
+    email: 'as@gmail.com',
+    password: '$2b$10$dV6HsdG/XHpZsDPTMJv1NeOvqR3vjAc4MJJLfGvuhyf2sOY5r1NtO'
+  }]
 
 router.post("/signin", async (req, res) => {
     const body = await req.body
@@ -23,7 +26,7 @@ router.post("/signin", async (req, res) => {
 
     if (success && isMatch) {
         const token = jwt.sign(body, secret, {
-            expiresIn: 80
+            expiresIn: 86400
         });
         res.status(200).send(token)
     }

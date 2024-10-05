@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Password from './Password'
+import Password from '../components/Password'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 

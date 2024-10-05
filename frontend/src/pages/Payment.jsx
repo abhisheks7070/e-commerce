@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import axios from 'axios';
 
 const Payment = ({ totalAmount }) => {
   const [cardNumber, setCardNumber] = useState('');
@@ -24,6 +25,27 @@ const Payment = ({ totalAmount }) => {
     // Redirect to a success or confirmation page
     navigate('/payment-success');
   };
+
+  useEffect(() => {
+        
+    const fetchdata = async () => {
+        // localStorage.getItem("cart")
+        try {
+            const response = await axios.get('http://localhost:5000/',
+                { headers: { authorization: localStorage.getItem("token") } }
+            );
+            // console.log(response.data);
+            // setList(response.data);
+        } catch (error) {
+            console.error('Error fetching contacts:', error);
+            navigate('/signin')
+            alert("session expired")
+        }
+    };
+
+    fetchdata();
+
+}, );
 
   return (
     <>
