@@ -10,6 +10,9 @@ const Signin = () => {
     const [err, setErr] = useState(false)
     const navigate = useNavigate()
 
+    navigate(0)
+
+
     function handleChange(e) {
         const name = e.target.name
         const value = (e.target.value)

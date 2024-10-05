@@ -10,6 +10,9 @@ const Payment = ({ totalAmount }) => {
   const [nameOnCard, setNameOnCard] = useState('');
   const navigate = useNavigate();
 
+  navigate(0)
+
+
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
 

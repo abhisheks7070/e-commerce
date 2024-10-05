@@ -11,6 +11,9 @@ const Cart = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  navigate(0)
+
+
   useEffect(() => {
 
     const fetchdata = async () => {

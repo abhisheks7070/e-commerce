@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCartItem } from '../store/cartReducer'
@@ -9,6 +9,10 @@ const Items = () => {
     const location = useLocation()
     console.log(location.state)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    navigate(0)
+
 
     useEffect(() => {
         
