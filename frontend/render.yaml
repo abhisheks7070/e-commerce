@@ -1,3 +1,5 @@
-rewrites:
-  - source : /*
+static:
+  routes:
+    -type: rewrite
+    source : /*
     destination: /index.html
