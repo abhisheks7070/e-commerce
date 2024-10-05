@@ -51,7 +51,7 @@ router.post('/signup', async (req, res) => {
     }
 })
 
-router.get("/", middleware, async (req, res) => {
+router.get("/signin", middleware, async (req, res) => {
 
     res.json(users.filter((e) => {
         return (e.email != req.email)
