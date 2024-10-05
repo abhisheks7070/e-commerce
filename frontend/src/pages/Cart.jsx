@@ -15,7 +15,7 @@ const Cart = () => {
 
     const fetchdata = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/signin',
+        const response = await axios.get('https://e-commerce-be-v4ed.onrender.com/signin',
           { headers: { authorization: localStorage.getItem("token") } }
         );
         console.log(response.data);

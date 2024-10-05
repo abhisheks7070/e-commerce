@@ -96,7 +96,7 @@ const Signup = () => {
     async function handleSubmit(event) {
         try {
             event.preventDefault()
-            const response = await axios.post('http://localhost:5000/signup', { email: username, password: password })
+            const response = await axios.post('https://e-commerce-be-v4ed.onrender.com/signup', { email: username, password: password })
             console.log(response.data)
 
         } catch (error) {
