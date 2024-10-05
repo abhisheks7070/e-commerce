@@ -11,7 +11,7 @@ const Cart = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  navigate(0)
+  location.reload()
 
 
   useEffect(() => {
