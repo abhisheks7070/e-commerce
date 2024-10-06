@@ -8,7 +8,7 @@ const CART_ITEM_DECREASE_QUANTITY = 'cart/decreaseItemQuantity'
 
 // Action Creators
 export function addCartItem(productId, quantity = 1) {
- 
+
   return { type: CART_ADD_ITEM, payload: { productId, quantity } }
 }
 
@@ -31,27 +31,31 @@ export function increaseCartItemQuantity(productId) {
 }
 
 // Reducer
+
 export default function cartReducer(state = [], action) {
+
+  localStorage.setItem("cart", JSON.stringify([]))
+
   switch (action.type) {
     case CART_ADD_ITEM:
-      const success1 = productList.filter((e)=>{
+      const success1 = productList.filter((e) => {
         return e.id === action.payload.productId
       })
-      console.log(state)
-      const success2 = state.find((e)=>{
+      // console.log(state)
+      const success2 = state.find((e) => {
         return e.id === action.payload.productId
       })
-      console.log(!success2)
-      if(success1 && !success2){
-
-        return [...state, {...success1[0], quantity: action.payload.quantity}]
+      // console.log(!success2)
+      if (success1 && !success2) {
+        
+        return [...state, { ...success1[0], quantity: action.payload.quantity }]
       }
-      else{
-        return state.map((e)=>{
-          if(e.id===action.payload.productId){
-            return {...e, quantity: e.quantity + 1}
+      else {
+        return state.map((e) => {
+          if (e.id === action.payload.productId) {
+            return { ...e, quantity: e.quantity + 1 }
           }
-          else{
+          else {
             return e
           }
         })
