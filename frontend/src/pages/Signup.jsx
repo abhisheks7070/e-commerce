@@ -7,6 +7,7 @@ import axios from 'axios'
 const Signup = () => {
 
     const [verify, setVerify] = useState({ "long": false, "lc": false, "uc": false, "sc": false, "num": false, "space": false })
+    const [name, setName] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [users, setUsers] = useState([])
@@ -15,6 +16,11 @@ const Signup = () => {
     const navigate = useNavigate()
 
     const handleChange = (event) => {
+        if (event.target.name == "name") {
+            setName(event.target.value)
+            console.log(name)
+        }
+
         if (event.target.name == "email") {
             setUsername(event.target.value)
             console.log(username)
@@ -96,7 +102,7 @@ const Signup = () => {
     async function handleSubmit(event) {
         try {
             event.preventDefault()
-            const response = await axios.post('https://e-commerce-be-v4ed.onrender.com/signup', { email: username, password: password })
+            const response = await axios.post('https://e-commerce-be-v4ed.onrender.com/signup', { name : name, email: username, password: password })
             console.log(response.data)
 
         } catch (error) {
@@ -110,6 +116,13 @@ const Signup = () => {
 
             <div className="flex flex-col justify-center space-y-4 p-4 max-w-sm mx-auto border-2 border-black bg-white rounded-xl">
                 <h2 className="text-2xl font-semibold text-center mb-6">Signup</h2>
+                <input
+                    name="name"
+                    placeholder="Enter your name"
+                    type="email"
+                    onChange={handleChange}
+                    className="border border-gray-900 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-black"
+                />
                 <input
                     name="email"
                     placeholder="Enter the username"

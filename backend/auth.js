@@ -1,7 +1,8 @@
 
 
 const jwt = require("jsonwebtoken");
-const secret = "123123"
+require("dotenv").config();
+
 
 // Modify the login route as below 
 const middleware = (req, res, next) => {
@@ -12,7 +13,7 @@ const middleware = (req, res, next) => {
         });
         try {
             const decoded = jwt.verify(token,
-                secret);
+                process.env.JWT_SECRET);
             // console.log(decoded)
             req.name = decoded.name;
             req.email = decoded.email;

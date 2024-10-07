@@ -2,8 +2,7 @@ const express = require('express')
 const cors = require("cors")
 const port = 5000
 const jwt = require("jsonwebtoken")
-const secret = "123123"
-const {middleware} = require("./auth")
+require("dotenv").config();
 const router = require("./routes/signin")
 const mongoose = require('mongoose');
 
@@ -20,7 +19,7 @@ app.use(cors(corsOptions));
 app.use(express.json())
 app.use("/", router);
 
-mongoose.connect('mongodb+srv://sabhishek7070:Ttorres9@cluster0.3githov.mongodb.net/Myshopee');
+mongoose.connect(process.env.MONGO_URI);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

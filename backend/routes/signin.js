@@ -3,7 +3,8 @@ const router = express.Router()
 const { middleware } = require("../auth")
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
-const secret = "123123"
+require("dotenv").config();
+
 const User = require('../db')
 
 
@@ -40,7 +41,7 @@ router.post("/signin", async (req, res) => {
     }
 
     if (success && isMatch) {
-        const token = jwt.sign(body, secret, {
+        const token = jwt.sign(body, process.env.JWT_SECRET, {
             expiresIn: 86400
         });
         res.status(200).send(token)
