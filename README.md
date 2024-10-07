@@ -109,4 +109,8 @@ You will need to configure the following environment variables for the app to fu
 ```bash
 PORT=5000
 MONGO_URI=<Your MongoDB URI>
+<<<<<<< HEAD
 JWT_SECRET=<Your JWT secret>
+=======
+JWT_SECRET=<Your JWT secret>
+>>>>>>> fec2fa4fe49cc010738b9c4238d9c8f66622d12b
