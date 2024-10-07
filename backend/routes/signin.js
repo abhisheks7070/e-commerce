@@ -4,7 +4,7 @@ const { middleware } = require("../auth")
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
 const secret = "123123"
-const User = require('../db')
+const {User} = require('../db')
 
 
 
