@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://sabhishek7070:Ttorres9@cluster0.3githov.mongodb.net/Myshopee');
+
 
 
 const userSchema = new mongoose.Schema({
@@ -12,4 +12,4 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = {User}
+module.exports = User
