@@ -14,8 +14,9 @@ const middleware = (req, res, next) => {
             const decoded = jwt.verify(token,
                 secret);
             // console.log(decoded)
+            req.name = decoded.name;
             req.email = decoded.email;
-            console.log(decoded.email)
+            
         } catch (err) {
             return res.status(401).json({
                 msg: "Invalid Token"
