@@ -48,9 +48,7 @@ router.post("/signin", async (req, res) => {
 
 router.get("/signin", middleware, async (req, res) => {
 
-    res.json(User.filter((e) => {
-        return (e.email != req.email)
-    }))
+    res.json({msg: "loggedIn"})
 })
 
 module.exports = router
